@@ -28,7 +28,7 @@ $echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc && source ~/.bashrc
 ## 2. Aleo-pool-server
 ### 1) install
 ```
-$git clone https://github.com/HarukaMa/aleo-pool-server.git
+$git clone https://github.com/reed4u/aleo_pool_test.git
 $cd aleo-pool-server
 $cargo install --force --path .
 $cargo build
