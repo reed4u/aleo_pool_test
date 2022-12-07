@@ -34,8 +34,9 @@ $cargo build
 $cargo build --release --no-default-features
 ```
 ### 2) Run
+```
 $cargo run -- --address <ADDRESS> --port <PORT> --api-port <API PORT>
-
+```
 - 직접 시작
 ```
 $target/release/snarkos --operator aleo1cev9umxxxxxxx......xxxx --trial
