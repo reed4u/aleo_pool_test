@@ -11,6 +11,7 @@ db = [
     "deadpool-postgres",
     "tokio-postgres"
 ]
+cuda = ["snarkvm/cuda"]
 
 [dependencies]
 #snarkvm = { path = "../../src/snarkVM" }
@@ -132,9 +133,6 @@ rpath = false
 lto = "thin"
 incremental = true
 debug-assertions = false
-
-[features]
-cuda = ["snarkvm/cuda"]
 
 [patch.crates-io]
 snarkvm = { git = "https://github.com/AleoHQ/snarkVM.git", branch = "feat/snarkvm-cuda" }
