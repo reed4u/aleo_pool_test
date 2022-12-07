@@ -134,5 +134,8 @@ lto = "thin"
 incremental = true
 debug-assertions = false
 
+[dependencies.snarkvm]
+version = "0.9.9"
+
 [patch.crates-io]
 snarkvm = { git = "https://github.com/AleoHQ/snarkVM.git", branch = "feat/snarkvm-cuda" }
