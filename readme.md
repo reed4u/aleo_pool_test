@@ -1,8 +1,8 @@
 
-[Aleo Install]
+# Aleo Install
 
 ## 1. Prerequisites
-============
+
 ### 1.1 build & package tool
 ```
 $sudo su
@@ -22,7 +22,6 @@ $echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc && source ~/.bashrc
 ```
 
 ## 2. Aleo-pool-server
-=============
 ### 1) install
 ```
 $git clone https://github.com/HarukaMa/aleo-pool-server.git
@@ -35,7 +34,7 @@ $cargo build
 $cargo build --release --no-default-features
 ```
 ### 2) Run
-$cargo run -- --address aleo1cy63k52kpa3n8rzneplgtmeqa3zlu3wwhgvnxn7se4xl0zm90yps6wa6n2 --port 8888 --api-port 9999
+$cargo run -- --address <ADDRESS> --port <PORT> --api-port <API PORT>
 
 - 직접 시작
 ```
@@ -43,7 +42,6 @@ $target/release/snarkos --operator aleo1cev9umxxxxxxx......xxxx --trial
 ```
 
 ## 3. snarkOS
-=======
 
 ### 3.1 Install
 - https://github.com/AleoHQ/snarkOS
