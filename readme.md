@@ -29,7 +29,7 @@ $echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc && source ~/.bashrc
 ### 1) install
 ```
 $git clone https://github.com/reed4u/aleo_pool_test.git
-$cd aleo-pool-server
+$cd aleo-pool-test
 $cargo install --force --path .
 $cargo build
 ```
