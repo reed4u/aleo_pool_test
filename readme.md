@@ -1,54 +1,72 @@
-# Aleo Mining Pool Server
 
-## Introduction
+[Aleo Install]
 
-A mining pool server for the Aleo network.
+## 1. Prerequisites
+============
+### 1.1 build & package tool
+```
+$sudo su
+$apt update
+$apt install build-essential
+$apt-get install pkg-config libssl-dev
+```
+### 1.2 Rust 설치
+```
+$curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+$source "$HOME/.cargo/env"
+```
+### 1.3 Go 설치
+```
+$wget -c https://golang.org/dl/go1.18.1.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
+$echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.bashrc && source ~/.bashrc
+```
 
-## Why a Standalone Server?
+## 2. Aleo-pool-server
+=============
+### 1) install
+```
+$git clone https://github.com/HarukaMa/aleo-pool-server.git
+$cd aleo-pool-server
+$cargo install --force --path .
+$cargo build
+```
+- 데이터베이스 기능을 끌 수 있음 
+```
+$cargo build --release --no-default-features
+```
+### 2) Run
+$cargo run -- --address aleo1cy63k52kpa3n8rzneplgtmeqa3zlu3wwhgvnxn7se4xl0zm90yps6wa6n2 --port 8888 --api-port 9999
 
-1. I want to separate the mining pool part from the network node as ledger syncing sometimes interferes with the mining pool operations.
-2. I want to use a more efficient network protocol for pool - miner communication. 
-3. Making too many changes to the snarkOS code could be a bad idea as I still need to sync with upstream code.
-4. It's easier to test the mining pool with a standalone server.
-5. It's also easier to add more features to a smaller codebase.
+- 직접 시작
+```
+$target/release/snarkos --operator aleo1cev9umxxxxxxx......xxxx --trial
+```
 
-## Features
+## 3. snarkOS
+=======
 
-1. A stratum protocol. [Specs](stratum/spec.md).
-2. A good enough automatic difficulty targeting system. (Needs more test under high load)
-3. Stats for pool and provers.
+### 3.1 Install
+- https://github.com/AleoHQ/snarkOS
+```
+$git clone https://github.com/AleoHQ/snarkOS.git --depth 1
+$cd snarkOS
+$./build_ubuntu.sh
+```
+- 공유기 포트포워드: 4133, 3033
+```
+$cargo install --path .
+```
 
-## State
+### 3.2 Run an Aleo Prover
+```
+$snarkos account new
+- get a Private Key, View Key, Address
+$./run-prover.sh
+```
+### 3.3 Run an Aleo Client
+```
+$./run-client.sh
+```
 
-Undergoing a lot of rewrite:
 
-- ~~Use RDBMS instead of RocksDB for most of the data storage~~
-- ~~Use a real stratum protocol for pool - miner communication~~
-- ~~Rework the difficulty targeting system~~
-- Decide if more API endpoints are needed -- many of the work should be offloaded to frontends
-- ~~Payout system step 1 - allocate rewards to provers after confirmation~~
-- Payout system step 2 - send rewards to provers (indefinitely delayed until the network is ready)
 
-### Things to test
-
-* ~~If new blocks can be properly generated~~
-* If the payout system works
-* If the difficulty retargeting system works under high load - Works under light load
-* If there is no deadlock under high load - Works under light load
-
-## Usage
-
-Don't use unless you know what you're doing for now.
-
-### System requirements
-
-- Rust 1.59+ (Not sure what's strictly required)
-
-Optional:
-
-- PostgreSQL 11+ (Still not sure what's strictly required)
-- PL/Python 3.6+
-
-## License
-
-AGPL-3.0-or-later
