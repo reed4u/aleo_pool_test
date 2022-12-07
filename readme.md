@@ -9,6 +9,9 @@ $sudo su
 $apt update
 $apt install build-essential
 $apt-get install pkg-config libssl-dev
+- GPU 사용 NVIDIA 경우
+$sudo apt install nvidia-opencl-dev
+
 ```
 ### 1.2 Rust 설치
 ```
