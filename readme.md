@@ -33,9 +33,9 @@ $cd aleo-pool-test
 $cargo install --force --path .
 $cargo build
 ```
-- 데이터베이스 기능을 끌 수 있음 
+- 데이터베이스 기능을 끌 수 있음 | gpu 사용
 ```
-$cargo build --release --no-default-features
+$cargo build --release --no-default-features --features cuda
 ```
 ### 2) Run
 ```
