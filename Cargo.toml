@@ -11,18 +11,14 @@ db = [
     "deadpool-postgres",
     "tokio-postgres"
 ]
-cuda = ["snarkvm/cuda"]
 
 [dependencies]
-#snarkvm = { path = "../../src/snarkVM" }
-#snarkvm = { git = "https://github.com/HarukaMa/snarkVM.git", branch = "feat/snarkvm-cuda" }
-#snarkvm-algorithms = { git = "https://github.com/HarukaMa/snarkVM.git", branch = "unchecked" }
-#snarkvm = "0.9.9"
-snarkvm-algorithms = "0.9.9"
-snarkvm-curves = "0.9.9"
-snarkvm-utilities = "0.9.9"
-snarkos-account = { git = "https://github.com/AleoHQ/snarkOS.git", branch = "feat/snarkvm-cuda" }
-snarkos-node-messages = { git = "https://github.com/AleoHQ/snarkOS.git", branch = "feat/snarkvm-cuda" }
+snarkvm = { git = "https://github.com/AleoHQ/snarkVM.git", branch = "feat/snarkvm-cuda" }
+snarkvm-algorithms = { git = "https://github.com/AleoHQ/snarkVM.git", branch = "feat/snarkvm-cuda" }
+snarkvm-curves =  { git = "https://github.com/AleoHQ/snarkVM.git", branch = "feat/snarkvm-cuda" }
+snarkvm-utilities = { git = "https://github.com/AleoHQ/snarkVM.git", branch = "feat/snarkvm-cuda" }
+snarkos-account = { git = "https://github.com/AleoHQ/snarkOS.git", branch = "testnet3" }
+snarkos-node-messages = { git = "https://github.com/AleoHQ/snarkOS.git", branch = "testnet3" }
 tracing = "0.1.37"
 tracing-log = "0.1.3"
 futures = "0.3.25"
@@ -34,14 +30,14 @@ dirs = "4.0.0"
 bincode = "1.3.3"
 anyhow = "1.0.66"
 signal-hook = "0.3.14"
-bytes = "1.2.1"
+bytes = "1.3.0"
 byteorder = "1.4.3"
 warp = "0.3.3"
 dotenv = "0.15.0"
 json-rpc-types = "1.2.0"
 semver = "1.0.14"
 hex = "0.4.3"
-rayon = "1.5.3"
+rayon = "1.6.0"
 num_cpus = "1.14.0"
 flurry = "0.4.0"
 savefile = "0.11.0"
@@ -57,7 +53,7 @@ path = "./cache"
 path = "./stratum"
 
 [dependencies.blake2]
-version = "0.10"
+version = "0.10.5"
 default-features = false
 
 [dependencies.tracing-subscriber]
@@ -74,7 +70,7 @@ optional = true
 features = ["rt_tokio_1"]
 
 [dependencies.reqwest]
-version = "0.11.12"
+version = "0.11.13"
 features = ["json"]
 
 [dependencies.parking_lot]
@@ -82,15 +78,15 @@ version = "0.12.1"
 features = ["serde"]
 
 [dependencies.serde]
-version = "1.0.147"
+version = "1.0.149"
 features = ["rc"]
 
 [dependencies.serde_json]
-version = "1.0.87"
+version = "1.0.89"
 features = ["preserve_order"]
 
 [dependencies.tokio]
-version = "1.21.2"
+version = "1.23.0"
 features = [
     "rt-multi-thread",
     "macros",
@@ -104,7 +100,7 @@ version = "0.3.1"
 features = ["futures-v0_3"]
 
 [dependencies.clap]
-version = "4.0.23"
+version = "4.0.29"
 features = ["derive"]
 
 [dev-dependencies]
@@ -133,9 +129,6 @@ rpath = false
 lto = "thin"
 incremental = true
 debug-assertions = false
-
-[dependencies.snarkvm]
-version = "0.9.9"
 
 [patch.crates-io]
 snarkvm = { git = "https://github.com/AleoHQ/snarkVM.git", branch = "feat/snarkvm-cuda" }
